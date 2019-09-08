@@ -12,38 +12,33 @@
             </tr>
             <tr>
                 <td height=300pt align=center>
-        <blockquote>
-        Vaša rešitev: {{ odgovor }} <br>
-        Pravilna rešitev je {{ naloga.resitev }}.
-        </blockquote>
-
-        <p> porabljen cas je enak {{porabljen_cas}}s.
-        </p>
-        __________________________________
-        <p>
-        Število tock: {{tocke}}.
         
+       <p>
+       Vaš končni rezultat je: {{izkupicek}}.
         </p>
-% if not konec:
-        <form action="/igra/{{id_igre}}/" method="get">
-        <button type="submit">Nadaljuj</button>
+% if mesto == False:
+        
+        <form action='/' method='get'>
+        <button type='submit'>Na zacetno stran</button>
         </form>
 % else:
-        <form action="/igra/{{id_igre}}/zakljucek/" method="get">
-        <button type="submit">Koncaj</button>
+        <p>
+            Na lestvici ste dosegli {{mesto}}. mesto.
+        </p>
+        <form action='/igra/{{id_igre}}/zapis_rezultatov/{{mesto}}/' method="POST">
+            Ime: <input type="text" name='ime'>
+            <button type='submit'>Potrdi</button>
         </form>
 % end
-        
+           
                 </td>
             </tr>
             <tr height=30pt>
                 <td>
-                     <form action="/" method="get">
+                    <form action="/" method="get">
                     <button type="submit">Menu</button>
                     </form>
                 </td>
-                
-
             <tr>
         </table>
 
